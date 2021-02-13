@@ -41,7 +41,9 @@ class Header extends Component{
             modalIsOpen: false,
             value : 0,
             username: "",
-            usernameRequired: "dispNone"
+            usernameRequired: "dispNone",
+            password: "",
+            passwordRequired:"dispNone"
 
         };
     }
@@ -56,9 +58,13 @@ class Header extends Component{
     }
     loginClickHandler = () => {
         this.state.username === "" ? this.setState({usernameRequired: "dispBlock"}) : this.setState({usernameRequired: "dispNone"})
+        this.state.password === "" ? this.setState({passwordRequired: "dispBlock"}) : this.setState({passwordRequired: "dispNone"})
     }
     inputUserNameChangeHandler = (e) => {
         this.setState({username: e.target.value})
+    }
+    inputPasswordChangeHandler = (e) => {
+        this.setState({password: e.target.value})
     }
     render(){
         return(
@@ -87,8 +93,8 @@ class Header extends Component{
                     </FormControl><br/><br/>
                     <FormControl required>
                         <InputLabel htmlFor="password">Password</InputLabel>
-                        <Input id="password" type="password" username={this.state.username} onChange={this.inputUserNameChangeHandler}/>
-                        <FormHelperText className={this.state.usernameRequired}><span className="red">required</span></FormHelperText>
+                        <Input id="password" type="password" password={this.state.username} onChange={this.inputPasswordChangeHandler}/>
+                        <FormHelperText className={this.state.passwordRequired}><span className="red">required</span></FormHelperText>
                     </FormControl><br/><br/>
                     <Button variant="contained" color="primary" onClick={this.loginClickHandler}>LOGIN</Button>
                 </TabContainer>}
