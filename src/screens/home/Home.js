@@ -172,15 +172,13 @@ class Home extends Component {
                                         InputLabelProps={{ shrink: true }}
                                     />
                                 </FormControl>
-                                <br/><br/>
+                                <br /><br />
                                 <FormControl className={classes.formControl}>
                                     <Button variant="contained" color="primary">Apply</Button>
                                 </FormControl>
                             </CardContent>
                         </Card>
-
                     </div>
-
                 </div>
             </div>
         )
